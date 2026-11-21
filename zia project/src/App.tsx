@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import heroVideo from './assets/hero.mp4';
+import { BrandedLoader } from './components/BrandedLoader';
 import { ProductViewer } from './components/ProductViewer';
 import type { ProductViewerMedia } from './types/productViewer';
 
@@ -32,6 +33,12 @@ interface BagEntry extends AccessoryItem {
   selectedFinish: string;
   quantity: number;
 }
+
+const createRotationFrames = (productId: string, frameCount: number) =>
+  Array.from(
+    { length: frameCount },
+    (_, index) => `/products/360/${productId}/frame-${String(index + 1).padStart(2, '0')}.webp`,
+  );
 
 const ITEMS: AccessoryItem[] = [
   {
@@ -91,6 +98,24 @@ const ITEMS: AccessoryItem[] = [
     finishes: ['Sea Glass', 'Black Cherry', 'Ivory'],
   },
   {
+    id: 'b-01',
+    name: 'Sienna Structured Top-Handle Bag',
+    tagline: 'A warm tan silhouette with rounded handles and refined gold-tone details.',
+    gender: 'Women',
+    category: 'Bags',
+    price: 465,
+    material: 'Textured tan finish with gold-tone hardware',
+    dimensions: 'Sample product · dimensions not specified',
+    warranty: 'Sample product · warranty details not specified',
+    edition: '360° Sample',
+    image: '/products/360/b-01/frame-01.webp',
+    zoomImage: '/products/360/b-01/frame-01.webp',
+    zoomEnabled: true,
+    view360Frames: createRotationFrames('b-01', 12),
+    view360Enabled: true,
+    finishes: ['Warm Tan'],
+  },
+  {
     id: 'ch-01',
     name: 'Chrono No. 04 Sapphire Dress Watch',
     tagline: '316L steel case, anti-reflective sapphire crystal & calfskin strap.',
@@ -144,6 +169,24 @@ const ITEMS: AccessoryItem[] = [
     edition: 'Atelier Reserve',
     image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85',
     finishes: ['Midnight / Steel', 'Forest / Silver'],
+  },
+  {
+    id: 'ch-05',
+    name: 'Axiom Noir Round-Dial Smartwatch',
+    tagline: 'A unisex black smartwatch with a circular face and matching textured strap.',
+    gender: 'Unisex',
+    category: 'Watches',
+    price: 320,
+    material: 'Black case with a textured dark strap',
+    dimensions: 'Sample product · dimensions not specified',
+    warranty: 'Sample product · warranty details not specified',
+    edition: '360° Sample',
+    image: '/products/360/ch-05/frame-01.webp',
+    zoomImage: '/products/360/ch-05/frame-01.webp',
+    zoomEnabled: true,
+    view360Frames: createRotationFrames('ch-05', 12),
+    view360Enabled: true,
+    finishes: ['Matte Black'],
   },
   {
     id: 'sc-01',
@@ -453,6 +496,7 @@ export function App() {
   return (
     <div className="site-shell min-h-screen w-full bg-[#171716] text-stone-100" data-theme={theme}>
       <div className="ambient-background" aria-hidden="true" />
+      <BrandedLoader />
       <div className="site-content">
       {/* Top Luxury Bar */}
       <div className="announcement-bar w-full border-b border-white/10 bg-[#1d1d1b] px-4 py-2 text-center text-[11px] font-medium tracking-[0.22em] text-[#d5ccba]/90 uppercase">
@@ -476,8 +520,8 @@ export function App() {
               aria-pressed={theme === 'sage'}
               onClick={() => setTheme('sage')}
             >
-              <span className="theme-swatch sage-swatch" aria-hidden="true" />
-              Coffee + Matcha
+              <span className="theme-swatch coffee-beige-swatch" aria-hidden="true" />
+              Coffee + Beige
             </button>
           </div>
         </div>

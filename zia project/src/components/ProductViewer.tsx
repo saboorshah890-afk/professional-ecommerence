@@ -472,7 +472,7 @@ export const ProductViewer: React.FC<ProductViewerProps> = ({
               3D Preview
             </button>
           )}
-          {view360Enabled !== false && (
+          {view360Enabled === true && (
             <button type="button" className="product-viewer-action product-viewer-action-secondary" onClick={() => openViewer('360')}>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4.5 9.5a8 8 0 0 1 13-3L20 9" />
@@ -686,6 +686,11 @@ export const ProductViewer: React.FC<ProductViewerProps> = ({
                   </span>
                 )}
                 <p>{frames.length > 1 ? 'Drag or swipe horizontally to rotate' : 'A 360° rotation is not configured for this product.'}</p>
+                {frames.length > 1 && (
+                  <button type="button" className="product-viewer-reset" onClick={() => setFrameIndex(0)}>
+                    Reset rotation
+                  </button>
+                )}
               </>
             )}
             {fullscreenMessage && <span className="product-viewer-status" role="status">{fullscreenMessage}</span>}

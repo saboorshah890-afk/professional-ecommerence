@@ -2483,24 +2483,30 @@ body {
   --deep: #201a16;
   --deepest: #13110f;
   --ambient: rgba(211, 101, 47, 0.11);
+  --button-primary: #d3652f;
+  --button-hover: #b94f24;
+  --button-text: #fffaf3;
   background: var(--page) !important;
   color: var(--ink);
 }
 
 .site-shell[data-theme="sage"] {
-  --page: #e9dfcf;
-  --surface: #f3eadc;
-  --raised: #fbf6ed;
-  --ink: #30241c;
-  --muted: #66564a;
-  --soft: #887a6c;
-  --line: rgba(65, 47, 34, 0.16);
-  --accent: #3cb371;
-  --accent-soft: #dce8c8;
-  --accent-ink: #153322;
-  --deep: #4a3528;
-  --deepest: #2a201a;
-  --ambient: rgba(60, 179, 113, 0.15);
+  --page: #f8f5ef;
+  --surface: #e8dccb;
+  --raised: #ffffff;
+  --ink: #4a3428;
+  --muted: #6f4e37;
+  --soft: #6f4e37;
+  --line: #d5c2aa;
+  --accent: #6f4e37;
+  --accent-soft: #d5c2aa;
+  --accent-ink: #f8f5ef;
+  --deep: #4a3428;
+  --deepest: #4a3428;
+  --ambient: color-mix(in srgb, #d5c2aa 35%, transparent);
+  --button-primary: #6f4e37;
+  --button-hover: #4a3428;
+  --button-text: #f8f5ef;
 }
 
 .site-shell[data-theme] .ambient-background {
@@ -2582,8 +2588,8 @@ body {
   background: linear-gradient(135deg, #1a1714 50%, #dc7138 50%);
 }
 
-.sage-swatch {
-  background: linear-gradient(135deg, #3cb371 34%, #a9b88c 34% 67%, #604530 67%);
+.coffee-beige-swatch {
+  background: linear-gradient(135deg, #f8f5ef 34%, #e8dccb 34% 67%, #6f4e37 67%);
 }
 
 .site-shell[data-theme] .site-header {
@@ -2622,17 +2628,32 @@ body {
 
 .site-shell[data-theme] .btn-3d-gold {
   border-color: var(--accent);
-  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 78%, var(--deep)));
-  color: var(--accent-ink);
+  background: var(--button-primary);
+  color: var(--button-text);
   box-shadow:
     0 1px 0 color-mix(in srgb, white 22%, transparent) inset,
     0 8px 22px color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 .site-shell[data-theme] .btn-3d-gold:hover {
-  border-color: var(--deep);
-  background: var(--deep);
-  color: #fffaf3;
+  border-color: var(--button-hover);
+  background: var(--button-hover);
+  color: var(--button-text);
+}
+
+.site-shell[data-theme] .btn-3d-gold:active,
+.site-shell[data-theme] .featured-product-actions button:first-child:active,
+.site-shell[data-theme] .closing-cta-button:active,
+.site-shell[data-theme] .newsletter-form button:active {
+  border-color: var(--button-hover);
+  background: var(--button-hover);
+  color: var(--button-text);
+  transform: translateY(0);
+}
+
+.site-shell[data-theme] button:focus-visible,
+.site-shell[data-theme] a:focus-visible {
+  outline-color: var(--accent);
 }
 
 .site-shell[data-theme] .btn-3d-dark {
@@ -2676,8 +2697,14 @@ body {
 
 .site-shell[data-theme] .featured-product-actions button:first-child {
   border-color: var(--accent);
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--button-primary);
+  color: var(--button-text);
+}
+
+.site-shell[data-theme] .featured-product-actions button:first-child:hover {
+  border-color: var(--button-hover);
+  background: var(--button-hover);
+  color: var(--button-text);
 }
 
 .site-shell[data-theme] .catalogue,
@@ -2757,12 +2784,14 @@ body {
 
 .site-shell[data-theme] .flash-card .px-5.pb-5 .btn-3d-gold {
   border-color: var(--accent);
-  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 78%, var(--deep)));
-  color: var(--accent-ink);
+  background: var(--button-primary);
+  color: var(--button-text);
 }
 
 .site-shell[data-theme] .flash-card .px-5.pb-5 .btn-3d-gold:hover {
-  background: var(--deep);
+  border-color: var(--button-hover);
+  background: var(--button-hover);
+  color: var(--button-text);
 }
 
 .site-shell[data-theme] .product-specs-back {
@@ -2920,9 +2949,16 @@ body {
 
 .site-shell[data-theme] .closing-cta-button {
   border-color: var(--accent);
-  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 78%, var(--deep)));
-  color: var(--accent-ink);
+  background: var(--button-primary);
+  color: var(--button-text);
   box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.site-shell[data-theme] .closing-cta-button:hover {
+  border-color: var(--button-hover);
+  background: var(--button-hover);
+  color: var(--button-text);
+  filter: none;
 }
 
 .site-shell[data-theme] .closing-visual {
@@ -3038,8 +3074,14 @@ body {
 
 .site-shell[data-theme] .newsletter-form button {
   border-color: var(--accent);
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--button-primary);
+  color: var(--button-text);
+}
+
+.site-shell[data-theme] .newsletter-form button:hover {
+  border-color: var(--button-hover);
+  background: var(--button-hover);
+  color: var(--button-text);
 }
 
 .product-viewer-preview {
@@ -3301,6 +3343,8 @@ body {
 
 .product-viewer-image {
   display: block;
+  width: min(94vw, 1500px);
+  height: calc(100dvh - 140px);
   min-width: 0;
   min-height: 0;
   max-width: min(94vw, 1500px);
@@ -3445,12 +3489,18 @@ body {
   border: 0;
   border-radius: 999px;
   margin-top: 18px;
-  background: var(--accent);
+  background: var(--button-primary, var(--accent));
   padding: 0 18px;
-  color: var(--accent-ink);
+  color: var(--button-text, var(--accent-ink));
   cursor: pointer;
   font-size: 10px;
   font-weight: 800;
+}
+
+.product-viewer-primary:hover,
+.product-viewer-primary:active {
+  background: var(--button-hover, var(--accent));
+  color: var(--button-text, var(--accent-ink));
 }
 
 .product-viewer-controls {
@@ -3637,4 +3687,359 @@ body {
   .announcement-copy {
     display: none;
   }
+}
+
+.branded-loader {
+  --loader-background: #111111;
+  --loader-text: #f8f5ef;
+  --loader-muted: #a7a19a;
+  --loader-accent: var(--button-primary, #d3652f);
+  --loader-track: #34312f;
+  position: fixed;
+  z-index: 20000;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  background: var(--loader-background);
+  color: var(--loader-text);
+  opacity: 1;
+  transition: opacity 420ms ease, visibility 420ms ease;
+}
+
+.site-shell[data-theme="sage"] .branded-loader {
+  --loader-background: var(--page);
+  --loader-text: var(--deep);
+  --loader-muted: var(--accent);
+  --loader-accent: var(--accent);
+  --loader-track: var(--line);
+}
+
+.branded-loader[data-phase="leaving"] {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.branded-loader-seal {
+  position: relative;
+  display: grid;
+  width: 68px;
+  height: 68px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--loader-accent) 70%, transparent);
+  border-radius: 50%;
+  color: var(--loader-accent);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 30px;
+  animation: loader-seal-breathe 1.8s ease-in-out infinite;
+}
+
+.branded-loader-seal::before,
+.branded-loader-seal::after {
+  position: absolute;
+  inset: 6px -5px;
+  border: 1px solid color-mix(in srgb, var(--loader-accent) 35%, transparent);
+  border-radius: 50%;
+  content: "";
+}
+
+.branded-loader-seal::before {
+  transform: rotate(38deg);
+}
+
+.branded-loader-seal::after {
+  transform: rotate(-38deg);
+}
+
+.branded-loader-wordmark {
+  margin: 8px 0 0;
+  color: var(--loader-text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+
+.branded-loader-caption {
+  margin: 0;
+  color: var(--loader-muted);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.branded-loader-progress {
+  width: min(190px, 52vw);
+  height: 1px;
+  overflow: hidden;
+  margin-top: 10px;
+  background: var(--loader-track);
+}
+
+.branded-loader-progress span {
+  display: block;
+  width: 38%;
+  height: 100%;
+  background: var(--loader-accent);
+  animation: loader-progress-sweep 1.35s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes loader-seal-breathe {
+  50% {
+    transform: scale(1.035);
+  }
+}
+
+@keyframes loader-progress-sweep {
+  from {
+    transform: translateX(-110%);
+  }
+
+  to {
+    transform: translateX(280%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .branded-loader,
+  .branded-loader-seal,
+  .branded-loader-progress span {
+    animation: none;
+    transition-duration: 1ms;
+  }
+}
+
+.site-shell[data-theme="sage"] .announcement-bar {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.site-shell[data-theme="sage"] .theme-switcher {
+  border-color: var(--line);
+  background: color-mix(in srgb, var(--surface) 72%, var(--page));
+}
+
+.site-shell[data-theme="sage"] .theme-option {
+  color: var(--muted);
+}
+
+.site-shell[data-theme="sage"] .theme-option:hover {
+  color: var(--ink);
+}
+
+.site-shell[data-theme="sage"] .theme-option.is-active {
+  border-color: var(--deep);
+  background: var(--deep);
+  color: var(--accent-ink);
+}
+
+.site-shell[data-theme="sage"] .theme-swatch {
+  border-color: var(--line);
+}
+
+.site-shell[data-theme="sage"] .hero-video-shade {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--deep) 96%, transparent) 0%, color-mix(in srgb, var(--deep) 82%, transparent) 32%, color-mix(in srgb, var(--deep) 20%, transparent) 68%, color-mix(in srgb, var(--deep) 42%, transparent) 100%),
+    linear-gradient(0deg, color-mix(in srgb, var(--deep) 84%, transparent) 0%, transparent 42%, color-mix(in srgb, var(--deep) 32%, transparent) 100%);
+}
+
+.site-shell[data-theme="sage"] .hero-title,
+.site-shell[data-theme="sage"] .hero-description {
+  color: var(--page);
+}
+
+.site-shell[data-theme="sage"] .hero-title span,
+.site-shell[data-theme="sage"] .hero-eyebrow,
+.site-shell[data-theme="sage"] .featured-product-copy > p {
+  color: var(--surface);
+}
+
+.site-shell[data-theme="sage"] .featured-product-card {
+  border-color: color-mix(in srgb, var(--accent-soft) 64%, transparent);
+  background: color-mix(in srgb, var(--deep) 94%, transparent);
+  color: var(--page);
+}
+
+.site-shell[data-theme="sage"] .faq-section {
+  background: var(--page);
+  color: var(--ink);
+}
+
+.site-shell[data-theme="sage"] .faq-section::before {
+  background:
+    radial-gradient(ellipse 740px 520px at 50% 0, color-mix(in srgb, var(--accent-soft) 35%, transparent), transparent 72%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 42%, transparent), transparent 260px);
+}
+
+.site-shell[data-theme="sage"] .faq-light-bars {
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 36%, transparent), transparent);
+  background-size: 100% 100%;
+  background-position: center;
+  opacity: 0.4;
+}
+
+.site-shell[data-theme="sage"] .faq-tag,
+.site-shell[data-theme="sage"] .faq-category-icon {
+  border-color: var(--line);
+  color: var(--accent);
+}
+
+.site-shell[data-theme="sage"] .faq-tag {
+  background: var(--surface);
+}
+
+.site-shell[data-theme="sage"] .faq-intro h2,
+.site-shell[data-theme="sage"] .faq-category-copy strong,
+.site-shell[data-theme="sage"] .faq-question {
+  color: var(--ink);
+}
+
+.site-shell[data-theme="sage"] .faq-intro > p,
+.site-shell[data-theme="sage"] .faq-category-copy > span,
+.site-shell[data-theme="sage"] .faq-answer-inner p,
+.site-shell[data-theme="sage"] .faq-empty-state {
+  color: var(--muted);
+}
+
+.site-shell[data-theme] .faq-contact-button {
+  border-color: var(--button-primary);
+  background: var(--button-primary);
+  color: var(--button-text);
+}
+
+.site-shell[data-theme] .faq-contact-button:hover {
+  border-color: var(--button-hover);
+  background: var(--button-hover);
+  color: var(--button-text);
+}
+
+.site-shell[data-theme] .faq-contact-button:active {
+  border-color: var(--button-hover);
+  background: var(--button-hover);
+  color: var(--button-text);
+  transform: translateY(0);
+}
+
+.site-shell[data-theme="sage"] .faq-search {
+  border-color: var(--line);
+  background: var(--raised);
+  box-shadow: 0 8px 36px color-mix(in srgb, var(--deep) 10%, transparent);
+}
+
+.site-shell[data-theme="sage"] .faq-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.site-shell[data-theme="sage"] .faq-search svg {
+  stroke: var(--muted);
+}
+
+.site-shell[data-theme="sage"] .faq-search input {
+  color: var(--ink);
+}
+
+.site-shell[data-theme="sage"] .faq-search input::placeholder {
+  color: var(--muted);
+}
+
+.site-shell[data-theme="sage"] .faq-category-card,
+.site-shell[data-theme="sage"] .faq-item,
+.site-shell[data-theme="sage"] .faq-empty-state {
+  border-color: var(--line);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.site-shell[data-theme="sage"] .faq-category-icon {
+  background: var(--page);
+}
+
+.site-shell[data-theme="sage"] .faq-category-card:hover,
+.site-shell[data-theme="sage"] .faq-category-card.is-selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--surface) 55%, var(--accent-soft));
+}
+
+.site-shell[data-theme="sage"] .faq-question:hover,
+.site-shell[data-theme="sage"] .faq-item.is-open .faq-question,
+.site-shell[data-theme="sage"] .faq-chevron,
+.site-shell[data-theme="sage"] .faq-item.is-open .faq-chevron {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.site-shell[data-theme="sage"] .faq-answer-inner p {
+  border-color: var(--line);
+}
+
+.site-shell[data-theme="sage"] .faq-empty-state {
+  background: var(--surface);
+}
+
+.site-shell[data-theme="sage"] .site-footer {
+  border-color: color-mix(in srgb, var(--accent-soft) 40%, transparent);
+  background: var(--deep);
+  color: var(--page);
+}
+
+.site-shell[data-theme="sage"] .footer-policy {
+  border-color: color-mix(in srgb, var(--accent-soft) 35%, transparent);
+  color: var(--surface);
+}
+
+.site-shell[data-theme="sage"] .footer-policy summary,
+.site-shell[data-theme="sage"] .footer-policy details p,
+.site-shell[data-theme="sage"] .footer-brand > p,
+.site-shell[data-theme="sage"] .footer-newsletter > p,
+.site-shell[data-theme="sage"] .footer-newsletter .newsletter-note,
+.site-shell[data-theme="sage"] .footer-column a,
+.site-shell[data-theme="sage"] .footer-column button {
+  color: var(--surface);
+}
+
+.site-shell[data-theme="sage"] .footer-brand-link,
+.site-shell[data-theme="sage"] .footer-column h3,
+.site-shell[data-theme="sage"] .footer-newsletter h3,
+.site-shell[data-theme="sage"] .footer-copyright {
+  color: var(--page);
+}
+
+.site-shell[data-theme="sage"] .footer-brand-mark,
+.site-shell[data-theme="sage"] .footer-socials > span {
+  border-color: color-mix(in srgb, var(--accent-soft) 62%, transparent);
+  color: var(--accent-soft);
+}
+
+.site-shell[data-theme="sage"] .footer-column a:hover,
+.site-shell[data-theme="sage"] .footer-column button:hover {
+  color: var(--page);
+}
+
+.site-shell[data-theme="sage"] .newsletter-form {
+  border-color: var(--line);
+  background: var(--page);
+  box-shadow: 0 5px 22px color-mix(in srgb, var(--deep) 12%, transparent);
+}
+
+.site-shell[data-theme="sage"] .newsletter-form:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.site-shell[data-theme="sage"] .newsletter-form input {
+  color: var(--ink);
+}
+
+.site-shell[data-theme="sage"] .newsletter-form input::placeholder {
+  color: var(--muted);
+}
+
+.site-shell[data-theme="sage"] .footer-copyright span:last-child {
+  color: var(--surface);
+}
+
+.site-shell[data-theme="sage"] .footer-oversized-wordmark {
+  color: color-mix(in srgb, var(--accent-soft) 56%, var(--deep));
 }
