@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd \"zia project\" && npm ci",
-  "buildCommand": "cd \"zia project\" && npm run build",
-  "outputDirectory": "zia project/dist"
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
