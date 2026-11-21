@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import heroVideo from './assets/hero.mp4';
+import { ProductViewer } from './components/ProductViewer';
+import type { ProductViewerMedia } from './types/productViewer';
 
 type GenderFilter = 'All' | 'Men' | 'Women' | 'Unisex';
 type CategoryFilter =
@@ -11,7 +13,7 @@ type CategoryFilter =
   | 'Phone Cases'
   | 'Eyewear & Belts';
 
-interface AccessoryItem {
+interface AccessoryItem extends ProductViewerMedia {
   id: string;
   name: string;
   tagline: string;
@@ -390,7 +392,7 @@ export function App() {
 
     const previousOverflow = document.body.style.overflow;
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setDetailItem(null);
+      if (event.key === 'Escape' && !event.defaultPrevented) setDetailItem(null);
     };
 
     document.body.style.overflow = 'hidden';
@@ -1301,7 +1303,17 @@ export function App() {
               ✕
             </button>
             <div className="detail-image-wrap">
-              <img src={detailItem.image} alt={detailItem.name} />
+              <ProductViewer
+                image={detailItem.image}
+                name={detailItem.name}
+                galleryImages={detailItem.galleryImages}
+                zoomImage={detailItem.zoomImage}
+                zoomEnabled={detailItem.zoomEnabled}
+                simulated3dEnabled={detailItem.simulated3dEnabled}
+                view360Frames={detailItem.view360Frames}
+                view360Enabled={detailItem.view360Enabled}
+                model3d={detailItem.model3d}
+              />
               {detailItem.edition && <span className="detail-edition">{detailItem.edition}</span>}
             </div>
             <div className="detail-copy">
