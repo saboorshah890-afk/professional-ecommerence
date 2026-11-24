@@ -512,7 +512,7 @@ export function App() {
               onClick={() => setTheme('coffee')}
             >
               <span className="theme-swatch coffee-swatch" aria-hidden="true" />
-              Noir + Orange
+              Dark Espresso
             </button>
             <button
               type="button"
@@ -521,7 +521,7 @@ export function App() {
               onClick={() => setTheme('sage')}
             >
               <span className="theme-swatch coffee-beige-swatch" aria-hidden="true" />
-              Coffee + Beige
+              Coffee + Warm Ivory
             </button>
           </div>
         </div>

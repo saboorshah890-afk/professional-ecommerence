@@ -2460,13 +2460,13 @@
 
 :root {
   color-scheme: light;
-  background: #f3eee4;
-  color: #34251b;
+  background: #F3ECE9;
+  color: #2A1F1A;
 }
 
 html,
 body {
-  background-color: #f3eee4;
+  background-color: #F3ECE9;
 }
 
 .site-shell[data-theme] {
@@ -2491,22 +2491,22 @@ body {
 }
 
 .site-shell[data-theme="sage"] {
-  --page: #f8f5ef;
-  --surface: #e8dccb;
-  --raised: #ffffff;
-  --ink: #4a3428;
-  --muted: #6f4e37;
-  --soft: #6f4e37;
-  --line: #d5c2aa;
-  --accent: #6f4e37;
-  --accent-soft: #d5c2aa;
-  --accent-ink: #f8f5ef;
-  --deep: #4a3428;
-  --deepest: #4a3428;
-  --ambient: color-mix(in srgb, #d5c2aa 35%, transparent);
-  --button-primary: #6f4e37;
-  --button-hover: #4a3428;
-  --button-text: #f8f5ef;
+  --page: #F3ECE9;
+  --surface: #F3ECE9;
+  --raised: #FFF9F5;
+  --ink: #2A1F1A;
+  --muted: #6B5A52;
+  --soft: #8A796F;
+  --line: rgba(42, 31, 26, 0.16);
+  --accent: #2A1F1A;
+  --accent-soft: #F3ECE9;
+  --accent-ink: #F3ECE9;
+  --deep: #2A1F1A;
+  --deepest: #2A1F1A;
+  --ambient: rgba(42, 31, 26, 0.08);
+  --button-primary: #2A1F1A;
+  --button-hover: #1E1713;
+  --button-text: #F3ECE9;
 }
 
 .site-shell[data-theme] .ambient-background {
@@ -2589,7 +2589,7 @@ body {
 }
 
 .coffee-beige-swatch {
-  background: linear-gradient(135deg, #f8f5ef 34%, #e8dccb 34% 67%, #6f4e37 67%);
+  background: linear-gradient(135deg, #2A1F1A 50%, #F3ECE9 50%);
 }
 
 .site-shell[data-theme] .site-header {
