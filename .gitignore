@@ -3,3 +3,4 @@ node_modules/
 **/dist/
 dist
 zia project/dist/index.html
+zia project\dist
