@@ -875,6 +875,7 @@
 .audience-card {
   min-height: 360px;
   aspect-ratio: 0.92 / 1;
+  border-radius: 16px;
 }
 
 .audience-card img,
@@ -2518,23 +2519,35 @@ body {
 
 .announcement-bar {
   min-height: 38px;
-  background: var(--deep);
+  background: linear-gradient(
+    110deg,
+    color-mix(in srgb, var(--deep) 94%, var(--accent-soft)),
+    var(--deep) 52%,
+    color-mix(in srgb, var(--deep) 90%, var(--accent-soft))
+  );
   color: #f5eee4;
 }
 
 .announcement-inner {
-  display: flex;
+  display: grid;
   width: min(100%, 1400px);
   min-height: 22px;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
   margin: 0 auto;
 }
 
 .announcement-copy {
+  grid-column: 2;
   margin: 0;
-  text-align: left;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.announcement-inner .theme-switcher {
+  grid-column: 3;
+  justify-self: end;
 }
 
 .theme-switcher {
@@ -3681,11 +3694,16 @@ body {
 
 @media (max-width: 640px) {
   .announcement-inner {
-    justify-content: center;
+    grid-template-columns: 1fr;
   }
 
   .announcement-copy {
     display: none;
+  }
+
+  .announcement-inner .theme-switcher {
+    grid-column: 1;
+    justify-self: center;
   }
 }
 
@@ -3811,7 +3829,12 @@ body {
 }
 
 .site-shell[data-theme="sage"] .announcement-bar {
-  background: var(--surface);
+  background: linear-gradient(
+    110deg,
+    color-mix(in srgb, var(--surface) 92%, var(--accent-soft)),
+    var(--surface) 52%,
+    color-mix(in srgb, var(--surface) 92%, var(--accent))
+  );
   color: var(--ink);
 }
 
